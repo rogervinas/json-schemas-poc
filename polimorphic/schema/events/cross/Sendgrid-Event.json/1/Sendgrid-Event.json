@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "http://schema.spain.schibsted.io/events/cross/Sendgrid-Event.json/1.json#",
+  "type": "object",
+  "properties": {
+    "BaseEvent" : {
+      "description" : "Common for all SCM events",
+      "$ref": "../../../common/Base-Event.json/1.json#"
+    } ,
+    "SendgridObject": {
+      "description" : "Email events from Sendgrid Webhook",
+      "oneOf" : {
+        "$ref": "../../../../objects/cross/Sendgrid/Sendgrid-Click.json/1.json#",
+        "$ref": "../../../../objects/cross/Sendgrid/Sendgrid-Bounce.json/1.json#"
+      }
+    }
+  },
+  "required": [
+    "SendgridObject","BaseEvent"
+  ]
+}

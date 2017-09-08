@@ -1,0 +1,8 @@
+{
+    "$id": "http://schema.spain.schibsted.io/objects/common/Custom-Fields.json/1.json#",
+    "additionalProperties": true,
+    "description": "Container object for custom fields.",
+    "properties": {},
+    "title": "CustomFields",
+    "type": "object"
+}

@@ -1,0 +1,41 @@
+apply plugin: 'java'
+apply plugin: 'jsonschema2pojo'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+    dependencies {
+        classpath 'org.jsonschema2pojo:jsonschema2pojo-gradle-plugin:0.4.37'
+    }
+}
+
+compileJava.dependsOn generateJsonSchema2Pojo
+
+dependencies {
+    compile("com.fasterxml.jackson.core:jackson-annotations:2.9.0")
+    compile("com.fasterxml.jackson.core:jackson-core:2.9.0")
+    compile("org.apache.commons:commons-lang3:3.6")
+    compile("javax.validation:validation-api:1.1.0.Final")
+}
+
+jsonSchema2Pojo {
+    source = [
+            new URL("file:///$projectDir/schema/events/cross/Sendgrid-Event.json/1/Sendgrid-Event.json")
+    ]
+    targetPackage = 'com.schibsted.plain.sendgrid'
+    targetDirectory = file("$projectDir/src/main/java")
+    includeJsr303Annotations = true
+    annotationStyle = 'jackson2'
+    outputEncoding = 'UTF-8'
+    includeAdditionalProperties = true
+    removeOldOutput = true
+    useCommonsLang3 = true
+}

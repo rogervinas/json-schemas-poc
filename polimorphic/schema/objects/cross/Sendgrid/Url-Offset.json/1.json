@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "http://schema.spain.schibsted.io/objects/cross/Sendgrid/Url-Offset.json/1.json#",
+  "type" : "object",
+  "properties" : {
+    "index": {
+      "description" : "Links are indexed beginning at 0. index indicates which link was clicked based on that index",
+      "type": "integer"
+    },
+    "type": {
+      "description" : "Indicates the type of the link that was clicked. Can be either text, HTML, or a header",
+      "type": "string"
+    }
+  }
+}

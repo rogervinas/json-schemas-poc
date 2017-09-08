@@ -1,0 +1,41 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$id": "http://schema.spain.schibsted.io/objects/common/Dummy-Object.json/1.json#",
+    "allOf": [
+        {
+            "$ref": "../Base-Object.json/1.json#"
+        }
+    ],
+    "description": "Definition for a news article based on the definition in schema.org/Article.",
+    "properties": {
+        "name": {
+            "type":"string",
+            "description": "The object name"
+        },
+        "description": {
+            "description": "Description of the object",
+            "type": "string"
+        },
+        "price": {
+            "description": "Price of the object",
+            "type": "string"
+        },
+        "publicationDate": {
+            "$ref": "../Common-Definitions.json/1.json#/definitions/date",
+            "description": "The date when the object was first created. Needs to follow ISO 8601 date format"
+        },
+        "tags": {
+            "description": "Tags are similar to categories, but they do not have hierachical relations.",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        }
+    },
+    "required": [
+        "name",
+        "publicationDate"
+    ],
+    "title": "ExampleObject",
+    "type": "object"
+}

@@ -1,0 +1,15 @@
+{
+    "$id": "http://schema.spain.schibsted.io/objects/common/Base-Object.json/1.json#",
+    "description": "The legendary ancestor to all content objects",
+    "properties": {
+        "@id": {
+            "description": "The ID of the object",
+            "type": "string"
+        }
+    },
+    "required": [
+        "@id"
+    ],
+    "title": "BaseObject",
+    "type": "object"
+}

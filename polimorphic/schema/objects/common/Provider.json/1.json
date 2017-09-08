@@ -1,0 +1,40 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$id": "http://schema.spain.schibsted.io/schema/objects/common/Provider.json/1.json#",
+    "properties": {
+        "@id": {
+            "description": "String identifier of the site that originated the event",
+            "enum": [
+                "infojobs",
+                "fotocasa",
+                "milanuncios",
+                "coches",
+                "motos",
+                "vibbo",
+                "inmofactory",
+                "worksi",
+                "other"
+            ]
+        },
+        "product": {
+            "description": "The exact product if applicable. The use case that originated the event. i.e. Ad management",
+            "type": "string"
+        },
+        "channel": {
+            "description": "Identifies the channel that triggered the event",
+            "enum": [
+                "desktop",
+                "android",
+                "ios",
+                "windows-phone",
+                "other"
+            ]
+        }
+    },
+    "required": [
+        "@id",
+        "channel"
+    ],
+    "title": "Provider",
+    "type": "object"
+}

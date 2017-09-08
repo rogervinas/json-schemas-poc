@@ -1,0 +1,20 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$id": "http://schema.spain.schibsted.io/events/common/Dummy-Event.json/1.json#",
+    "allOf": [
+        {
+            "$ref": "../Base-Event.json/1.json#"
+        }
+    ],
+    "description": "Example schema.",
+    "properties": {
+        "dummyObject": {
+            "description": "Object used as an example",
+            "$ref": "../../../objects/common/Dummy-Object.json/1.json#"
+        }
+    },
+    "required": [
+        "dummyObject"
+    ],
+    "title": "DummyEvent"
+}

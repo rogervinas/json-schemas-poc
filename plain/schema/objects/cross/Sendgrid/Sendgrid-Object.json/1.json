@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "http://schema.spain.schibsted.io/objects/cross/Sendgrid/Sendgrid-Object.json/1.json#",
+  "type" : "object",
+  "properties" : {
+    "email" : {
+      "description" : "Email address of the intended recipient",
+      "type" : "string"
+    },
+    "category" : {
+      "description": "List of Sendgrid email categories",
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "timestamp" : {
+      "$ref": "../../../common/Common-Definitions.json/1.json#/definitions/date",
+      "description": "The time when the Sendgrid event was created."
+    },
+    "ip" : {
+      "description" : "Which IP address was used to send the email.",
+      "type" : "string"
+    },
+    "tls" : {
+      "description" : "Whether or not TLS was used when sending the email",
+      "type" : "boolean"
+    },
+    "sg_message_id" : {
+      "description" : "Sengrid internal message id (same identifier for all unique email events)",
+      "type" : "string"
+    },
+    "sg_event_id" : {
+      "description" : "Sendgrid event id (unique)",
+      "type" : "string"
+    },
+    "event" : {
+      "description" : "Event type",
+      "type" : "string",
+      "enum" : ["dropped", "delivered", "deferred", "bounce", "open", "click", "spamReport"]
+    },
+    "cert_err" : {
+      "description" : "Whether there was a certificate error on the receiving side",
+      "type" : "boolean"
+    },
+    "url" : {
+      "description" : "The url of the link clicked by user. Only for click event",
+      "type" : "string"
+    },
+    "useragent" : {
+      "description" : "The user agent responsible for the event. Only for click, open and spamReport events",
+      "type" : "string"
+    },
+    "url_offset": {
+      "description" : "More information about the link that was clicked.  Only for click event",
+      "$ref": "../Url-Offset.json/1.json#"
+    },
+    "smtp-id" : {
+      "description" : "An id attached to the message by the originating system. Only for delivery event",
+      "type" : "string"
+    },
+    "reason" : {
+      "description" : "Reason for dropped event. Only for dropped event",
+      "type" : "string"
+    },
+    "response" : {
+      "description" : "Server response on deferred email. Only for deferred or bounce event",
+      "type" : "string"
+    },
+    "attempts" : {
+      "description" : "Delivery attempt. Only for deferred event",
+      "type" : "integer"
+    },
+    "type" : {
+      "description" : "Bounce type. Only for bounce event",
+      "type" : "string"
+    },
+    "status": {
+      "description" : "Bounce status. Only for bounce event",
+      "type" : "string"
+    }
+  },
+  "required" : ["email", "sg_message_id", "sg_event_id", "event", "timestamp"]
+}

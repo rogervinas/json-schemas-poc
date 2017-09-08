@@ -1,0 +1,3 @@
+rootProject.name = 'json-schemas-poc'
+include 'plain'
+include 'polimorphic'
